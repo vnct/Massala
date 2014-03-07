@@ -17,6 +17,7 @@ int main(int argc, char **argv)
 	vector<Person> myvectPerson;
 	Group GroupOne;
 	int nbPerson;
+	int i=0;
 	cout << "Nb de person" << endl;
 	cin >> nbPerson;
 	GroupOne.setNumberOfPerson(nbPerson);
@@ -28,6 +29,15 @@ int main(int argc, char **argv)
 		cout << "Name de person" << endl;
 		cin >> toto;
 		P1.setName(toto);
+		cout << "Number tel" << endl;
+		cin >> toto;
+		P1.setPhoneNumber(toto);
+		cout << "Number tel" << endl;
+		cin >> toto;
+		P1.setPhoneNumber(toto);
+
+
+		;
 	}
 
 	::testing::InitGoogleTest(&argc, argv);
