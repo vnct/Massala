@@ -15,7 +15,10 @@ class Myclass {
 private:
 	char* _montring;
 public:
-	Myclass() : _montring() {}
+	Myclass(char* String_)
+	{
+		_montring = String_;
+	}
 	int monstring(char* String_);
 };
 
