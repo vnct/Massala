@@ -8,21 +8,21 @@
 #ifndef PERSON_HPP_
 #define PERSON_HPP_
 
-#include <string.h>
+#include <string>
 using namespace std;
 
 
 class Person{
 public:
 	Person();
-	virtual ~Person();
+	~Person();
 
 	const string& getName() const;
 	const string& getPhoneNumber() const;
 	float getExpenses() const;
 	float getPayBack() const;
 	void setName(const string& iName);
-	void setPhoneNumber(const string& iName);
+	void setPhoneNumber(const string& iPhoneNumber);
 	void setExpenses(const float iExpenses);
 	void setPayBack(const float iPayback);
 
