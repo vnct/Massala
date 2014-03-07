@@ -36,7 +36,6 @@ int main(int argc, char **argv)
 		P1.setPhoneNumber(toto);
 		cout << "Expenses" << endl;
 		cin >> tata;
-
 		P1.setExpenses(tata);
 
 
