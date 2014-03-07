@@ -12,9 +12,9 @@ using namespace std;
 
 TEST(StringTest, monstring)
 {
-    string aText="";
-    EXPECT_EQ("", aText);
-    EXPECT_EQ(0, aText.length());
+    string aText="I am the master of my fate \n I am the captain of my soul";
+    EXPECT_EQ("I am the master of my fate \n I am the captain of my soul", aText);
+    EXPECT_EQ(14, aText.length());
 
 }
 
