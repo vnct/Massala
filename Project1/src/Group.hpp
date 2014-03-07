@@ -18,7 +18,6 @@ public:
 
 	int getNumberOfPerson() const;
 	float getExpensePerperson() const;
-
 	float getExpenseTotal() const;
 	void setNumberOfPerson(const int iNumberOfPerson);
 	void setExpensePerperson(const float iExpensePerperson);
