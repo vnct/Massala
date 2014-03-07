@@ -26,15 +26,17 @@ int main(int argc, char **argv)
 	{
 		Person P1;
 		string toto;
+		float tata;
 		cout << "Name de person" << endl;
 		cin >> toto;
 		P1.setName(toto);
 		cout << "Number tel" << endl;
 		cin >> toto;
 		P1.setPhoneNumber(toto);
-		cout << "Number tel" << endl;
-		cin >> toto;
-		P1.setPhoneNumber(toto);
+		cout << "Expenses" << endl;
+		cin >> tata;
+		P1.setExpenses(tata);
+
 
 
 		;
