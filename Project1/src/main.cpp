@@ -24,6 +24,10 @@ int main(int argc, char **argv)
 	for(i=1;i<=GroupOne.getNumberOfPerson();i++)
 	{
 		Person P1;
+		string toto;
+		cout << "Name de person" << endl;
+		cin >> toto;
+		P1.setName(toto);
 	}
 
 	::testing::InitGoogleTest(&argc, argv);
