@@ -22,7 +22,7 @@ public:
 	void setNumberOfPerson(const int iNumberOfPerson);
 	void setExpensePerperson(const float iExpensePerperson);
 	void setExpenseTotal(const float iExpenseTotal);
-
+/*CECI EST UN TEST*/
 private:
 	int _numberOfPerson;
 	float _expensePerperson;
