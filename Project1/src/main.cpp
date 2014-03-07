@@ -24,7 +24,6 @@ int main(int argc, char **argv)
 	for(i=1;i<=GroupOne.getNumberOfPerson();i++)
 	{
 		Person P1;
-
 	}
 
 	::testing::InitGoogleTest(&argc, argv);
