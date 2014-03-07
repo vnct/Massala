@@ -14,6 +14,7 @@ using namespace std;
    		    while (mot)
    		    {
    		          nbr++;
+
    		          mot=strtok(NULL," /n/r/0");
    		    }
 
