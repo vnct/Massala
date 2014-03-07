@@ -7,7 +7,6 @@
  */
 #include <iostream>
 #include <gtest/gtest.h>
-#include "Myclass.h"
 using namespace std;
 
 TEST(StringTest, monstring)
