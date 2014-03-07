@@ -6,11 +6,19 @@
  */
 
 #include "Group.hpp"
+#include <vector>
 Group::Group()
 {
-
+	_numberOfPerson=0;
+	_expensePerperson=0;
+	_expenseTotal=0;
 }
-
+Group::Group(int NumberofPerson)
+{
+	_numberOfPerson=NumberofPerson;
+	_expensePerperson=0;
+	_expenseTotal=0;
+}
 Group::~Group()
 {
 
@@ -38,5 +46,13 @@ void Group::setExpensePerperson(const float iExpensePerperson)
 void Group::setExpenseTotal(const float iExpenseTotal)
 {
 	_expenseTotal=iExpenseTotal;
+}
+void Group::calculexpense(vector<Person> tperson)
+{
+	for(int unsigned i=0;i < tperson.size();i++)
+	{
+		_expenseTotal += tperson[i].getExpenses();
+	}
+	_expensePerperson = _expenseTotal / _numberOfPerson;
 }
 

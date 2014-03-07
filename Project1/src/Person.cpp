@@ -9,11 +9,17 @@ Person::Person()
 {
 
 }
-
+Person::Person(const string& iName,const string& iPhoneNumber,const float iExpenses):
+	_name(iName),
+	_phoneNumber(iPhoneNumber),
+	_expenses(iExpenses)
+{
+}
 Person::~Person()
 {
 
 }
+
 
 const string& Person::getName() const {
 	return _name;
@@ -43,6 +49,10 @@ void Person::setExpenses(const float iExpenses)
 void Person::setPayBack(const float iPayback)
 {
 	_payback=iPayback;
+}
+void Person::CalculPayback(float expenseperperson)
+{
+	_payback = expenseperperson - _expenses;
 }
 
 

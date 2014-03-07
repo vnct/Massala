@@ -17,32 +17,44 @@ int main(int argc, char **argv)
 	vector<Person> myvectPerson;
 	Group GroupOne;
 	int nbPerson;
-	int i=0;
 	cout << "Nb de person" << endl;
 	cin >> nbPerson;
 	GroupOne.setNumberOfPerson(nbPerson);
 	string name, phoneNumber;
-	for(i=1;i<=GroupOne.getNumberOfPerson();i++)
+	for(int i=0;i<=GroupOne.getNumberOfPerson();i++)
 	{
-		Person P1;
-		string toto;
-		float total;
-		float tata;
-		cout << "Name de person" << endl;
-		cin >> toto;
-		P1.setName(toto);
+		string sname;
+		string snumber;
+		float fexpenses;
+		cout << "Name person" << endl;
+		cin >> sname;
+		//P1.setName(sname);
 		cout << "Number tel" << endl;
-		cin >> toto;
-		P1.setPhoneNumber(toto);
+		cin >> sname;
+	//	P1.setPhoneNumber(sname);
 		cout << "Expenses" << endl;
-		cin >> tata;
-		P1.setExpenses(tata);
+		cin >> fexpenses;
+		Person person(sname,snumber,fexpenses);
+//		P1.setExpenses(fexpenses);
 
 
 
 
+		float ExpenseTotal = GroupOne.getExpenseTotal();
+		ExpenseTotal = ExpenseTotal + person.getExpenses();
+		GroupOne.setExpenseTotal(ExpenseTotal);
+		myvectPerson.push_back(person);
 
-		;
+
+	}
+
+	GroupOne.calculexpense(myvectPerson);
+	cout << "Total expenses " << GroupOne.getExpenseTotal() << endl;
+	cout << "Result of expenser per person "  << GroupOne.getExpensePerperson() << endl;
+	for(int i = 0; i < myvectPerson.size();i++)
+	{
+		myvectPerson[i].CalculPayback(GroupOne.getExpensePerperson());
+		cout << "Owed of Person number" << i+1 << " : " << myvectPerson[i].getPayBack() << endl;
 	}
 
 	::testing::InitGoogleTest(&argc, argv);

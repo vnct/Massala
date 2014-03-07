@@ -15,6 +15,7 @@ using namespace std;
 class Person{
 public:
 	Person();
+	Person(const string& iName,const string& iPhoneNumber,const float iExpenses);
 	~Person();
 
 	const string& getName() const;
@@ -25,6 +26,7 @@ public:
 	void setPhoneNumber(const string& iPhoneNumber);
 	void setExpenses(const float iExpenses);
 	void setPayBack(const float iPayback);
+	void CalculPayback(float depensetotal);
 
 
 private:
