@@ -26,6 +26,7 @@ int main(int argc, char **argv)
 	{
 		Person P1;
 		string toto;
+		float total;
 		float tata;
 		cout << "Name de person" << endl;
 		cin >> toto;
@@ -36,6 +37,7 @@ int main(int argc, char **argv)
 		cout << "Expenses" << endl;
 		cin >> tata;
 		P1.setExpenses(tata);
+
 
 
 
