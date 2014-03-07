@@ -4,8 +4,6 @@
  *  Created on: 7 mars 2014
  *      Author: lapie
  */
-
-
 #include "Person.hpp"
 Person::Person()
 {

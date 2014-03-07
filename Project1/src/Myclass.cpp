@@ -6,7 +6,7 @@
 using namespace std;
    	int monstring(char* String_)
     {
-
+/*
    		char *mot;
    		    int nbr=0;
 
@@ -19,7 +19,7 @@ using namespace std;
    		    }
 
    		    return nbr;
-
+*/
 
 
       return 0;
