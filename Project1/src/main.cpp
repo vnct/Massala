@@ -13,15 +13,15 @@
 using namespace std;
 int main(int argc, char **argv)
 {
-
 	vector<Person> myvectPerson;
 	Group GroupOne;
 	int nbPerson;
-	cout << "Nb de personne " << endl;
+	cout << "Number pers " << endl;
 	cin >> nbPerson;
 	GroupOne.setNumberOfPerson(nbPerson);
+	GroupOne.setExpenseTotal(0);
 	string name, phoneNumber;
-	for(int i=0;i<=GroupOne.getNumberOfPerson();i++)
+	for(int i=0;i<GroupOne.getNumberOfPerson();i++)
 	{
 		string sname;
 		string snumber;
@@ -36,16 +36,10 @@ int main(int argc, char **argv)
 		cin >> fexpenses;
 		Person person(sname,snumber,fexpenses);
 //		P1.setExpenses(fexpenses);
-
-
-
-
 		float ExpenseTotal = GroupOne.getExpenseTotal();
 		ExpenseTotal = ExpenseTotal + person.getExpenses();
 		GroupOne.setExpenseTotal(ExpenseTotal);
 		myvectPerson.push_back(person);
-
-
 	}
 
 	GroupOne.calculexpense(myvectPerson);
@@ -57,10 +51,10 @@ int main(int argc, char **argv)
 		cout << "Owed of Person number" << i+1 << " : " << myvectPerson[i].getPayBack() << endl;
 	}
 
-	::testing::InitGoogleTest(&argc, argv);
+	//::testing::InitGoogleTest(&argc, argv);
 
 
 
-	return RUN_ALL_TESTS();
+//	return RUN_ALL_TESTS();
 	 return 0;
 }
