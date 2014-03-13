@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 	vector<Person> myvectPerson;
 	Group GroupOne;
 	int nbPerson;
-	cout << "Nb de person" << endl;
+	cout << "Nb de personne " << endl;
 	cin >> nbPerson;
 	GroupOne.setNumberOfPerson(nbPerson);
 	string name, phoneNumber;
@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 	GroupOne.calculexpense(myvectPerson);
 	cout << "Total expenses " << GroupOne.getExpenseTotal() << endl;
 	cout << "Result of expenser per person "  << GroupOne.getExpensePerperson() << endl;
-	for(int i = 0; i < myvectPerson.size();i++)
+	for(int unsigned i = 0; i < myvectPerson.size();i++)
 	{
 		myvectPerson[i].CalculPayback(GroupOne.getExpensePerperson());
 		cout << "Owed of Person number" << i+1 << " : " << myvectPerson[i].getPayBack() << endl;
