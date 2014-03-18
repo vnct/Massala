@@ -1,40 +1,42 @@
-/*
- * Person.hpp
- *
- *  Created on: 7 mars 2014
- *      Author: lapie
- */
+	/*
+	 * Person.hpp
+	 *
+	 *  Created on: Feb 18, 2014
+	 *      Author: aabou
+	 */
 
-#ifndef PERSON_HPP_
-#define PERSON_HPP_
+	#ifndef PERSON_HPP_
+	#define PERSON_HPP_
 
-#include <string>
-using namespace std;
+	#include <string>
 
+	class Group;
 
-class Person{
-public:
-	Person();
-	Person(const string& iName,const string& iPhoneNumber,const float iExpenses);
-	~Person();
+	using namespace std;
 
-	const string& getName() const;
-	const string& getPhoneNumber() const;
-	float getExpenses() const;
-	float getPayBack() const;
-	void setName(const string& iName);
-	void setPhoneNumber(const string& iPhoneNumber);
-	void setExpenses(const float iExpenses);
-	void setPayBack(const float iPayback);
-	void CalculPayback(float depensetotal);
+	class Person{
 
+	public:
+		Person();
+		virtual ~Person();
+		void operatePayback(const float iExpensesPerPerson);
+		const string& getName() const;
+		const string& getPhoneNumber() const;
+		float getExpenses() const;
+		float getPayBack() const;
+		Group* getGroup();
+		void setGroup(Group *iGroup);
+		void setName(const string& iName);
+		void setPhoneNumber(const string& iPhoneNumber);
+		void setExpenses(const float iExpenses);
+		void setPayBack(const float iPayback);
 
-private:
-	string _name;
-	string _phoneNumber;
-	float _expenses;
-	float _payback;
-};
+	private:
+		string _name;
+		string _phoneNumber;
+		Group *_group;
+		float _expenses;
+		float _payback;
+	};
 
-
-#endif /* PERSON_HPP_ */
+	#endif /* PERSON_HPP_ */

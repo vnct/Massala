@@ -1,25 +1,30 @@
 /*
  * Person.cpp
  *
- *  Created on: 7 mars 2014
- *      Author: lapie
+ *  Created on: Feb 18, 2014
+ *      Author: aabou
  */
+
 #include "Person.hpp"
+#include "Group.hpp"
+
 Person::Person()
 {
+	_expenses=0;
+	_payback=0;
+}
+
+Person::~Person() {
 
 }
-Person::Person(const string& iName,const string& iPhoneNumber,const float iExpenses):
-	_name(iName),
-	_phoneNumber(iPhoneNumber),
-	_expenses(iExpenses)
+Group* Person::getGroup()
 {
+	return _group;
 }
-Person::~Person()
+void Person::setGroup(Group *iGroup)
 {
-
+	_group = iGroup;
 }
-
 
 const string& Person::getName() const {
 	return _name;
@@ -50,9 +55,7 @@ void Person::setPayBack(const float iPayback)
 {
 	_payback=iPayback;
 }
-void Person::CalculPayback(float expenseperperson)
-{
-	_payback = expenseperperson - _expenses;
+
+void Person::operatePayback(const float iExpensesPerPerson) {
+    _payback = _expenses - iExpensesPerPerson;
 }
-
-

@@ -1,41 +1,32 @@
 /*
  * Group.hpp
  *
- *  Created on: 7 mars 2014
- *      Author: lapie
+ *  Created on: Feb 18, 2014
+ *      Author: aabou
  */
 
 #ifndef GROUP_HPP_
 #define GROUP_HPP_
+
+
+#include "Person.hpp"
 #include <string>
 #include <vector>
-#include "Person.hpp"
 
-using namespace std;
+class Group : public vector<Person> {
 
-
-class Group : public vector<Person>{
 public:
-	Group();
-	Group(int NumberofPerson);
-	~Group();
+    Group();
+    virtual ~Group();
 
-	int getNumberOfPerson() const;
-	float getExpensePerperson() const;
-	float getExpenseTotal() const;
-	void setNumberOfPerson(const int iNumberOfPerson);
-	void setExpensePerperson(const float iExpensePerperson);
-	void setExpenseTotal(const float iExpenseTotal);
-	void calculexpense();
-	void enterPersons();
-	void addPersons(string name, string phoneNumber, float expenses);
-	void calculPaybackPersons();
+    const string& getName() const;
+    void setName(const string& iName);
 
-/*CECI EST UN TEST*/
+    float totalExpenses() const;
+    float expensesPerPerson() const;
+
 private:
-	int _numberOfPerson;
-	float _expensePerperson;
-	float _expenseTotal;
-
+    string _name;
 };
+
 #endif /* GROUP_HPP_ */
