@@ -10,10 +10,17 @@
 Group::Group() {
 
 }
+Group::Group(int iNbPerson, const string& iNameg) :
+_name(iNameg),
+_nbPerson(iNbPerson)
+{
+
+}
 
 Group::~Group() {
 
 }
+
 
 const string& Group::getName() const {
 	return _name;

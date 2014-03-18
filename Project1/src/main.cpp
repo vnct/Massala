@@ -30,13 +30,14 @@ int main(int argc, char **argv) {
 
 	for (unsigned int j=0; j < aNbGroup; j++)
 	{
-		Group aGroup;
+
 		cout << "How name of group " <<  j+1 << " ?" << endl;
-		cin >> namegroup;
-		aGroup.setName(namegroup);
+		cin >> namegroup;;
 		//myvectGroup.push_back(aGroup);
 		cout << "How many people are you?" << endl;
 		cin >> aNb;
+		Group aGroup(aNb,namegroup);
+		myvectGroup.push_back(aGroup);
 		for (unsigned int i=0; i < aNb; i++) {
 			Person aPerson;
 			string myname;
@@ -51,21 +52,22 @@ int main(int argc, char **argv) {
 			cout << "What is the expenses of person " << i+1 << " ?" << endl;
 			cin >> expenses;
 			aPerson.setExpenses(expenses);
-			aPerson.setGroup(&aGroup);
-			//aPerson.setGroup(&myvectGroup[j]);
+			aPerson.setGroup(&myvectGroup[j]);
+			myvectGroup[j].push_back(aPerson);
 
-			aGroup.push_back(aPerson);
+			//aPerson.setGroup(&myvectGroup[j]);
+//			aGroup.push_back(aPerson);
 		}
-		cout << endl;
-				cout << "Total expenses:\t\t" << aGroup.totalExpenses() << endl;
-				float aExpensesPerPerson = aGroup.expensesPerPerson();
-				cout << "Expenses per person:\t" << aExpensesPerPerson <<endl;
-				cout << endl;
-				myvectGroup.push_back(aGroup);
-//		cout << "Total expenses:\t\t" << myvectGroup[j].totalExpenses() << endl;
-//		float aExpensesPerPerson = myvectGroup[j].expensesPerPerson();
-//		cout << "Expenses per person:\t" << aExpensesPerPerson << endl;
 //		cout << endl;
+//		cout << "Total expenses:\t\t" << aGroup.totalExpenses() << endl;
+//		float aExpensesPerPerson = aGroup.expensesPerPerson();
+//		cout << "Expenses per person:\t" << aExpensesPerPerson <<endl;
+//		cout << endl;
+//		myvectGroup.push_back(aGroup);
+		cout << "Total expenses:\t\t" << myvectGroup[j].totalExpenses() << endl;
+		float aExpensesPerPerson = myvectGroup[j].expensesPerPerson();
+		cout << "Expenses per person:\t" << aExpensesPerPerson << endl;
+		cout << endl;
 
 		//myvectGroup.push_back(aGroup);
 	}
@@ -95,9 +97,9 @@ int main(int argc, char **argv) {
 			}
 	}
 
-
-
 	cout << endl;
+
+
 
 	return 0;
 }

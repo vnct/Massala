@@ -27,6 +27,7 @@
 		Group* getGroup();
 		void setGroup(Group *iGroup);
 		void setName(const string& iName);
+		void setPerson(const string& iName,const string& iPhoneNumber,const float iExpenses);
 		void setPhoneNumber(const string& iPhoneNumber);
 		void setExpenses(const float iExpenses);
 		void setPayBack(const float iPayback);

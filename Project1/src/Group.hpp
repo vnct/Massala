@@ -17,6 +17,7 @@ class Group : public vector<Person> {
 
 public:
     Group();
+    Group(int iNbPerson,const string& iNameg);
     virtual ~Group();
 
     const string& getName() const;
@@ -27,6 +28,7 @@ public:
 
 private:
     string _name;
+    int _nbPerson;
 };
 
 #endif /* GROUP_HPP_ */

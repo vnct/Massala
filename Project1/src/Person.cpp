@@ -43,6 +43,12 @@ void Person::setName(const string& iName)
 {
 	_name=iName;
 }
+void Person::setPerson(const string& iName,const string& iPhoneNumber,const float iExpenses)
+{
+	_name=iName;
+	_phoneNumber=iPhoneNumber;
+	_expenses=iExpenses;
+}
 void Person::setPhoneNumber(const string& iPhoneNumber)
 {
 	_phoneNumber=iPhoneNumber;
