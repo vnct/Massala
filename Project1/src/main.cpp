@@ -33,7 +33,6 @@ int main(int argc, char **argv) {
 
 		cout << "How name of group " <<  j+1 << " ?" << endl;
 		cin >> namegroup;;
-		//myvectGroup.push_back(aGroup);
 		cout << "How many people are you?" << endl;
 		cin >> aNb;
 		Group aGroup(aNb,namegroup);
@@ -54,22 +53,11 @@ int main(int argc, char **argv) {
 			aPerson.setExpenses(expenses);
 			aPerson.setGroup(&myvectGroup[j]);
 			myvectGroup[j].push_back(aPerson);
-
-			//aPerson.setGroup(&myvectGroup[j]);
-//			aGroup.push_back(aPerson);
 		}
-//		cout << endl;
-//		cout << "Total expenses:\t\t" << aGroup.totalExpenses() << endl;
-//		float aExpensesPerPerson = aGroup.expensesPerPerson();
-//		cout << "Expenses per person:\t" << aExpensesPerPerson <<endl;
-//		cout << endl;
-//		myvectGroup.push_back(aGroup);
 		cout << "Total expenses:\t\t" << myvectGroup[j].totalExpenses() << endl;
 		float aExpensesPerPerson = myvectGroup[j].expensesPerPerson();
 		cout << "Expenses per person:\t" << aExpensesPerPerson << endl;
 		cout << endl;
-
-		//myvectGroup.push_back(aGroup);
 	}
 
 	/*
@@ -86,10 +74,10 @@ int main(int argc, char **argv) {
 	{
 
 		for (size_t j=0; j < myvectGroup[i].size(); ++j) {
-				// operate the payback first
+
 				myvectGroup[i].at(j).operatePayback(myvectGroup[i].expensesPerPerson());
 
-				// display the values
+
 				cout << myvectGroup[i].at(j).getName() << "\t\t" << myvectGroup[i].at(j).getPhoneNumber()
 		            		<< "\t\t" << myvectGroup[i].at(j).getExpenses() << "\t\t"
 		            		<< myvectGroup[i].at(j).getPayBack()  << "\t\t"
