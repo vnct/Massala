@@ -17,7 +17,6 @@
 #include "Group.hpp"
 class Group;
 
-
 	class Csv{
 
 	public:

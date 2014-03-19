@@ -22,7 +22,6 @@ int main(int argc, char **argv) {
 	/*
 	 *  Register the input
 	 */
-
 	string namegroup;
 	Csv my_csv;
 

@@ -72,8 +72,8 @@ vector<Group> Csv::getData(const string& iNameFile)
 				groupeexistant= mesgroupes.at(j).getName().compare(persons.at(k).getGroupName());
 				if(groupeexistant==0)
 				{index=j;break;}
+
 			}
-			cout << index;
 			if(groupeexistant==0)
 			{
 				persons.at(k).setGroup(&mesgroupes[index]);
