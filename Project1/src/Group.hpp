@@ -18,6 +18,7 @@ class Group : public vector<Person> {
 public:
     Group();
     Group(int iNbPerson,const string& iNameg);
+    Group(const string& iNameg);
     virtual ~Group();
 
     const string& getName() const;

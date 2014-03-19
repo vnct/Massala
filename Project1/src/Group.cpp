@@ -17,6 +17,12 @@ _nbPerson(iNbPerson)
 
 }
 
+Group::Group(const string& iNameg) :
+_name(iNameg)
+{
+
+}
+
 Group::~Group() {
 
 }

@@ -8,9 +8,11 @@
 
 #include "Person.hpp"
 #include "Group.hpp"
+#include "Csv.hpp"
 
 #include <iostream>
 #include <string>
+#include <unistd.h>
 
 using namespace std;
 
@@ -22,47 +24,11 @@ int main(int argc, char **argv) {
 	 */
 
 	string namegroup;
+	Csv my_csv;
 
-	vector<Group> myvectGroup;
-
-	cout << "How MANY group?" << endl;
-	cin >> aNbGroup;
-
-	for (unsigned int j=0; j < aNbGroup; j++)
-	{
-
-		cout << "How name of group " <<  j+1 << " ?" << endl;
-		cin >> namegroup;;
-		cout << "How many people are you?" << endl;
-		cin >> aNb;
-		Group aGroup(aNb,namegroup);
-		myvectGroup.push_back(aGroup);
-		for (unsigned int i=0; i < aNb; i++) {
-			Person aPerson;
-			string myname;
-			cout << "What is the name of person " << i+1 << " ?" << endl;
-			cin >> myname;
-			aPerson.setName(myname);
-			string phone;
-			cout << "What is the phone number of person " << i+1 << " ?" << endl;
-			cin >> phone;
-			aPerson.setPhoneNumber(phone);
-			float expenses;
-			cout << "What is the expenses of person " << i+1 << " ?" << endl;
-			cin >> expenses;
-			aPerson.setExpenses(expenses);
-			aPerson.setGroup(&myvectGroup[j]);
-			myvectGroup[j].push_back(aPerson);
-		}
-		cout << "Total expenses:\t\t" << myvectGroup[j].totalExpenses() << endl;
-		float aExpensesPerPerson = myvectGroup[j].expensesPerPerson();
-		cout << "Expenses per person:\t" << aExpensesPerPerson << endl;
-		cout << endl;
-	}
-
-	/*
-	 *  Prepare the output
-	 */
+	string filename =  string(get_current_dir_name());
+	string mon_emplacement_fichier = filename + "/src/test.csv";
+	vector<Group> myvectGroup = my_csv.getData(mon_emplacement_fichier);
 
 
 	cout << "Name\t\t" << "Phone Number\t" << "Expenses\t"
@@ -75,14 +41,13 @@ int main(int argc, char **argv) {
 
 		for (size_t j=0; j < myvectGroup[i].size(); ++j) {
 
-				myvectGroup[i].at(j).operatePayback(myvectGroup[i].expensesPerPerson());
+			myvectGroup[i].at(j).operatePayback(myvectGroup[i].expensesPerPerson());
 
-
-				cout << myvectGroup[i].at(j).getName() << "\t\t" << myvectGroup[i].at(j).getPhoneNumber()
-		            		<< "\t\t" << myvectGroup[i].at(j).getExpenses() << "\t\t"
-		            		<< myvectGroup[i].at(j).getPayBack()  << "\t\t"
-		            		<< myvectGroup[i].at(j).getGroup()->getName() << endl;
-			}
+			cout << myvectGroup[i].at(j).getName() << "\t\t" << myvectGroup[i].at(j).getPhoneNumber()
+		            				<< "\t\t" << myvectGroup[i].at(j).getExpenses() << "\t\t"
+		            				<< myvectGroup[i].at(j).getPayBack()  << "\t\t"
+		            				<< myvectGroup[i].at(j).getGroup()->getName() << endl;
+		}
 	}
 
 	cout << endl;

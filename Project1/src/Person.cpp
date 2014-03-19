@@ -25,7 +25,10 @@ void Person::setGroup(Group *iGroup)
 {
 	_group = iGroup;
 }
-
+const string& Person::getGroupName() const
+{
+	return _groupName;
+}
 const string& Person::getName() const {
 	return _name;
 }
@@ -42,6 +45,10 @@ float Person::getPayBack() const{
 void Person::setName(const string& iName)
 {
 	_name=iName;
+}
+void Person::setGroupName(const string& iGroupName)
+{
+	_groupName=iGroupName;
 }
 void Person::setPerson(const string& iName,const string& iPhoneNumber,const float iExpenses)
 {
