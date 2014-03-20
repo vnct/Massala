@@ -17,8 +17,7 @@
 using namespace std;
 
 int main(int argc, char **argv) {
-//	unsigned int aNb = 0;
-//	unsigned int aNbGroup = 0;
+
 	/*
 	 *  Register the input
 	 */
@@ -32,10 +31,10 @@ int main(int argc, char **argv) {
 
 
 	cout << "Name\t\t" << "Phone Number\t" << "Expenses\t"
-			<< "Payback\t\t" << "Group Name" <<endl;
+			<< "Payback\t\t" << "Group Name" << endl;
 	cout << "------------------------------------------------------------------------"
 			<< endl;
-
+	cout.precision(4);
 	for (size_t i=0; i < myvectGroup.size(); ++i)
 	{
 
