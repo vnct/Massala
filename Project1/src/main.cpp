@@ -21,13 +21,17 @@ int main(int argc, char **argv) {
 	/*
 	 *  Register the input
 	 */
+	 printf ("Nombre d'argument : %d\n", argc);
+
+	    for (int x = 0; x < argc; ++x)
+	        printf ("Argument %d : %s\n", x + 1, argv[x]);
 	string namegroup;
 	Csv my_csv;
 
 	string filename =  string(get_current_dir_name());
 	string mon_emplacement_fichier = filename + "/src/test.csv";
 	my_csv.setName(mon_emplacement_fichier);
-	vector<Group> myvectGroup = my_csv.setGroup(my_csv.getLigneCSV());
+	vector<Group> myvectGroup = my_csv.fillGroup(my_csv.getLigneCSV());
 
 
 	cout << "Name\t\t" << "Phone Number\t" << "Expenses\t"

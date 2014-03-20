@@ -9,31 +9,36 @@
 Csv::Csv() {
 
 }
-vector<string> &Csv::split(const string &s, char delim, vector<string> &elems) {
-	std::stringstream ss(s);
-	std::string item;
-	while (std::getline(ss, item, delim)) {
-		elems.push_back(item);
-	}
-	return elems;
+Csv::~Csv() {
+
 }
 
-vector<string> Csv::split(const string &s, char delim) {
-	std::vector<std::string> elems;
-	split(s, delim, elems);
-	return elems;
+
+vector<string> &Csv::split(const string &my_string_to_split, char char_separator, vector<string> &element_string) {
+	stringstream ss(my_string_to_split);
+	string item;
+	while (getline(ss, item, char_separator)) {
+		element_string.push_back(item);
+	}
+	return element_string;
+}
+
+vector<string> Csv::split(const string &my_string_to_split, char char_separator) {
+	vector<string> element_string;
+	split(my_string_to_split, char_separator, element_string);
+	return element_string;
 }
 vector<string> Csv::getLigneCSV()
 {
-	vector<string> meslignes;
+	vector<string> meslignes; // tableau de string meslignes pour stocker chaque ligne du fichier
 	string mon_fichier = _namefile;  // je stocke dans la chaîne mon_fichier le nom du fichier à ouvrir
 	ifstream fichier(mon_fichier.c_str(), ios::in);
 	if(fichier)  // si l'ouverture a réussi
 	{
 		string ligne;
-		while(getline(fichier, ligne))
+		while(getline(fichier, ligne)) // pour chaque ligne du fichier
 		{
-			meslignes.push_back(ligne);
+			meslignes.push_back(ligne); //on ajoute la ligne dans le tableau de string meslignes
 		}
 		fichier.close();  // on referme le fichier
 	}
@@ -41,27 +46,27 @@ vector<string> Csv::getLigneCSV()
 	{
 		cerr << "Erreur à l'ouverture !" << endl;
 	}
-	return meslignes;
+	return meslignes; // on retourne toutes les lignes récupérées dans tableau de string meslignes
 
 }
-vector<Group> Csv::setGroup(vector<string> contenu_fichier)
+vector<Group> Csv::fillGroup(vector<string> contenu_fichier)
 {
-	vector<Group> mesgroupes;
-	vector<string> myperson;
-	vector<Person> persons;
+	vector<Group> mesgroupes; // déclaration de tous les groups
+	vector<string> myperson; // déclaration d'un tableau de string pour récuperer le contenu d'une personne après le split de la ligne
+	vector<Person> persons; // déclaration d'un tableau pour stocker chaque personne du fichier
 	unsigned int groupeexistant=1;
 	for(unsigned int a=0; a < contenu_fichier.size(); a++)
 	{
 		Person aPerson;
-		myperson = split(contenu_fichier.at(a),',');
-		aPerson.setName(myperson.at(0));
-		aPerson.setPhoneNumber(myperson.at(1));
-		aPerson.setExpenses(atof(myperson.at(2).c_str()));
-		aPerson.setGroupName(myperson.at(3));
-		persons.push_back(aPerson);
-		if(mesgroupes.size()==0)
+		myperson = split(contenu_fichier.at(a),','); // on split la ligne du CSV en un tableau de string
+		aPerson.setName(myperson.at(0)); // emplacement 0 est le nom de la personne
+		aPerson.setPhoneNumber(myperson.at(1)); // emplacement 1 est le telephone de la personne
+		aPerson.setExpenses(atof(myperson.at(2).c_str())); //  emplacement 2 est la personne
+		aPerson.setGroupName(myperson.at(3)); // on récupère le nom du groupe
+		persons.push_back(aPerson); // on ajoute la personne récupérée dans le tableau de personnne
+		if(mesgroupes.size()==0) // on regarde si des groupes existes, si NON
 		{
-			mesgroupes.push_back(Group(myperson.at(3)));
+			mesgroupes.push_back(Group(myperson.at(3))); //
 		}
 		for(unsigned int j=0; j < mesgroupes.size(); j++)
 		{

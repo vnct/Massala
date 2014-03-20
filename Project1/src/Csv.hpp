@@ -21,11 +21,12 @@ class Group;
 
 	public:
 		Csv();
+		virtual ~Csv();
 		vector<string> getLigneCSV();
-		vector<Group> setGroup(vector<string> contenu_fichier);
+		vector<Group> fillGroup(vector<string> contenu_fichier);
 		const string& getName() const;
-		vector<string> split(const string &s, char delim);
-		vector<string> &split(const string &s, char delim, vector<string> &elems);
+		vector<string> split(const string &my_string_to_split, char char_separator) ;
+		vector<string> &split(const string &my_string_to_split, char char_separator, vector<string> &element_string);
 		void setName(const string& iNameFile);
 
 	private:
