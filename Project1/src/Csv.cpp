@@ -66,33 +66,33 @@ vector<Group> Csv::fillGroup(vector<string> contenu_fichier)
 		persons.push_back(aPerson); // on ajoute la personne récupérée dans le tableau de personnne
 		if(mesgroupes.size()==0) // on regarde si des groupes existes, si NON
 		{
-			mesgroupes.push_back(Group(myperson.at(3))); //
+			mesgroupes.push_back(Group(myperson.at(3))); // on créé un premier group
 		}
-		for(unsigned int j=0; j < mesgroupes.size(); j++)
+		for(unsigned int j=0; j < mesgroupes.size(); j++) // on parcours tous les groupes
 		{
 			groupeexistant= mesgroupes.at(j).getName().compare(myperson.at(3));
-			if(groupeexistant==0)
+			if(groupeexistant==0) // si le groupe existe alors tant mieux, on sort
 			{break;}
 		}
-		if(groupeexistant!=0)
+		if(groupeexistant!=0) // si le groupe n'existe pas
 		{
-			mesgroupes.push_back(Group(myperson.at(3)));
+			mesgroupes.push_back(Group(myperson.at(3))); // on créé le nouveau groupe.
 		}
 	}
-	for(unsigned int k=0; k < persons.size(); k++)
+	for(unsigned int k=0; k < persons.size(); k++) // pour chaque personne
 	{
 		int index;
 		for(unsigned int j=0; j < mesgroupes.size(); j++)
 		{
 			groupeexistant= mesgroupes.at(j).getName().compare(persons.at(k).getGroupName());
-			if(groupeexistant==0)
+			if(groupeexistant==0) // on récupère son group et l'adresse du groupe
 			{index=j;break;}
 
 		}
-		if(groupeexistant==0)
+		if(groupeexistant==0) // le group est forcément existant
 		{
-			persons.at(k).setGroup(&mesgroupes[index]);
-			mesgroupes[index].push_back(persons.at(k));
+			persons.at(k).setGroup(&mesgroupes[index]); // on associe l'adresse du groupe
+			mesgroupes[index].push_back(persons.at(k)); // on ajoute la personne à son group
 
 		}
 	}
