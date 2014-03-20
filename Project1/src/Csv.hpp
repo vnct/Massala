@@ -21,7 +21,6 @@ class Group;
 
 	public:
 		Csv();
-		vector<Group> getData(const string& iNameFile);
 		vector<string> getLigneCSV();
 		vector<Group> setGroup(vector<string> contenu_fichier);
 		const string& getName() const;
