@@ -17,8 +17,8 @@
 using namespace std;
 
 int main(int argc, char **argv) {
-	unsigned int aNb = 0;
-	unsigned int aNbGroup = 0;
+//	unsigned int aNb = 0;
+//	unsigned int aNbGroup = 0;
 	/*
 	 *  Register the input
 	 */
@@ -27,7 +27,8 @@ int main(int argc, char **argv) {
 
 	string filename =  string(get_current_dir_name());
 	string mon_emplacement_fichier = filename + "/src/test.csv";
-	vector<Group> myvectGroup = my_csv.getData(mon_emplacement_fichier);
+	my_csv.setName(mon_emplacement_fichier);
+	vector<Group> myvectGroup = my_csv.setGroup(my_csv.getLigneCSV());
 
 
 	cout << "Name\t\t" << "Phone Number\t" << "Expenses\t"
